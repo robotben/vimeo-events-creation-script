@@ -4,22 +4,92 @@ VIMEO LIVE EVENTS CREATION SCRIPT
 Creates Vimeo live events from CSV data and returns streaming details.
 
 
-SETUP
------
-1. Install dependencies:
-   pip install -r requirements.txt
-
-2. Create .env file with your Vimeo API token:
-   VIMEO_ACCESS_TOKEN=your_token_here
-
-   Get your token at: https://developer.vimeo.com/apps
-   Required scopes: create, edit, public
+PREREQUISITES
+-------------
+- Python 3.7 or higher
+- A Vimeo account with Live streaming access
+- A Vimeo API access token
 
 
-USAGE
------
-python create_vimeo_events.py                  # Uses events_sample.csv
-python create_vimeo_events.py your_file.csv   # Uses custom CSV
+STEP-BY-STEP SETUP
+------------------
+
+1. INSTALL PYTHON (if not already installed)
+   - Download Python from: https://www.python.org/downloads/
+   - During installation, CHECK the box "Add Python to PATH"
+   - To verify installation, open Command Prompt and type:
+       python --version
+     You should see something like "Python 3.11.0"
+
+2. DOWNLOAD THIS SCRIPT
+   - Download or clone this repository to your computer
+   - Note the folder location (e.g., C:\Users\YourName\vimeo-script)
+
+3. OPEN COMMAND PROMPT
+   - Press Windows+R, type "cmd", press Enter
+   - Navigate to the script folder:
+       cd C:\Users\YourName\vimeo-script
+     (Replace with your actual folder path)
+
+4. INSTALL REQUIRED PACKAGES
+   - In Command Prompt, run:
+       pip install -r requirements.txt
+   - This installs the necessary Python libraries
+
+5. GET YOUR VIMEO API TOKEN
+   - Go to: https://developer.vimeo.com/apps
+   - Click "Create App" (or select existing app)
+   - Go to the "Authentication" tab
+   - Generate a new Access Token with these scopes:
+       - create
+       - edit
+       - public
+   - Copy the token (you'll only see it once!)
+
+6. CREATE YOUR .env FILE
+   - In the script folder, create a new file named exactly:  .env
+   - Open it with Notepad and add this line:
+       VIMEO_ACCESS_TOKEN=paste_your_token_here
+   - Save and close the file
+   - IMPORTANT: Never share this file or commit it to GitHub
+
+7. CREATE YOUR CSV FILE
+   - Open events_sample.csv in Excel or a text editor
+   - Replace the sample data with your event details
+   - Save the file (keep it as CSV format)
+
+
+RUNNING THE SCRIPT
+------------------
+1. Open Command Prompt
+2. Navigate to the script folder:
+     cd C:\Users\YourName\vimeo-script
+3. Run the script:
+     python create_vimeo_events.py
+
+   Or specify a custom CSV file:
+     python create_vimeo_events.py my_events.csv
+
+4. The script will display results for each event created
+5. Results are also saved to: output/event_results.json
+
+
+TROUBLESHOOTING
+---------------
+"python is not recognized..."
+  - Python wasn't added to PATH during installation
+  - Reinstall Python and check "Add Python to PATH"
+
+"No module named requests..."
+  - Run: pip install -r requirements.txt
+
+"VIMEO_ACCESS_TOKEN not found..."
+  - Make sure .env file exists in the script folder
+  - Make sure the file is named exactly ".env" (not ".env.txt")
+
+"403 Forbidden" or "create scope" error
+  - Your API token doesn't have the right permissions
+  - Generate a new token with create, edit, public scopes
 
 
 CSV FORMAT
