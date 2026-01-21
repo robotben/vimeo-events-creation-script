@@ -1,0 +1,19 @@
+# Environment variables (keep API key private)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Output files
+output/
